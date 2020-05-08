@@ -5,8 +5,18 @@ import {Link} from 'react-router-dom';
 
 export class Tabla extends Component {
 
-    
+
+    delete(id){
+        fetch('http://localhost:9000/api/v1/instrumento/' + id, {
+        method: 'DELETE',
+        })
+        .then(res => res.json()) // or res.json()
+        .then(res => console.log(res))
+        window.location.reload();
+    }
+
     render() {
+        const airbag = 0;
         const celda = this.props.row.map( (element,i) =>{
             return(
             <React.Fragment key={element.id}>
@@ -16,7 +26,7 @@ export class Tabla extends Component {
                     <td>{element.precio}</td>
                     <td>  
                         <Link to={`/operation/${element.id}`}><Button variant="primary">Modificar</Button></Link>
-                        <Button variant="danger">Eliminar</Button> 
+                        <Button variant="danger" onClick={ () => this.delete(element.id)}>Eliminar</Button> 
                     </td>
                     </tr>
             </React.Fragment>

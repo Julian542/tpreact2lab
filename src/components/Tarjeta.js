@@ -45,7 +45,7 @@ class Tarjeta extends Component {
                             <a href={`detalleProducto/${this.props.id}`}>
                                 <img
                                     className="imagen"
-                                    src={require(`../assets/images/${this.props.imagenPath}`)}
+                                    src={nro1}
                                     alt="Imagen del Producto"
                                     align="left"
                                 />
